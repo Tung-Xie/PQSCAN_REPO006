@@ -1,18 +1,14 @@
 package com.tony.audit;
 import java.security.KeyPairGenerator;
-import java.security.Security;
+import java.security.spec.ECGenParameterSpec;
 
 public class AuditTask {
-    public void checkWeakConfigs() throws Exception {
-        // [Critical] 弱曲線偵測
-        KeyPairGenerator kpg1 = KeyPairGenerator.getInstance("EC");
-        String weakCurve = "sect283k1"; // NIST 已淘汰
-        String oldGovAlgo = "GOST3410"; 
-        
-        // [Medium] 現代非 PQC 曲線
-        String brainpool = "brainpoolP256r1";
-        
-        // 模擬呼叫，確保掃描器追蹤到變數
-        System.out.println("Auditing risk: " + weakCurve + " and " + oldGovAlgo);
+    public void runAudit() throws Exception {
+        // [Critical] 各國特規或弱曲線
+        String[] auditCurves = {"brainpoolP256r1", "sect283k1", "sm2", "gost3410"};
+        for(String c : auditCurves) {
+            System.out.println("Auditing: " + c);
+            try { KeyPairGenerator.getInstance(c); } catch(Exception e){}
+        }
     }
 }
