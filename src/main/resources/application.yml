@@ -1,0 +1,7 @@
+audit_rules:
+  # [Critical] NIST SP800-57 Deprecated
+  blacklist: [\"sect283k1\", \"sect409k1\", \"sect571k1\", \"GOST_R_34_10\"]
+  # [Low] Quantum Safe Lengths
+  preferred_cipher: \"AES-256-GCM\"
+  preferred_hash: \"SHA-512\"
+  pki_medium: \"rsa_pss_pss_sha512\"
