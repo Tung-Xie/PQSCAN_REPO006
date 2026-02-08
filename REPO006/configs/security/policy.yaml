@@ -1,0 +1,2 @@
+pki_policy: SLH-DSA-128f
+allowed_curves: ['ML-KEM-768', 'X25519']
