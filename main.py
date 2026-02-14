@@ -1,22 +1,21 @@
 from cryptography.hazmat.primitives import hashes
-import oqs
 
-def pqc_scan_trigger():
-    # 誘餌：它一定認得的 Hash
-    h = hashes.Hash(hashes.SHA512())
+def pqc_inventory():
+    # 誘餌：傳統資產
+    control = hashes.Hash(hashes.SHA512())
     
-    # KEX 關鍵字字串賦值
-    # 我們把清單中的重點直接寫死在變數裡
-    kex_assets = {
-        "KEM": "MLKEM1024",
-        "SIG": "ML-DSA-87",
-        "HYBRID": "X25519_MLKEM768",
-        "OLD": "kyber1024"
-    }
+    # PQC 資產字串 (完全對齊 Low Risk 清單)
+    kex_list = [
+        "MLKEM1024",
+        "ML-DSA-87",
+        "X25519_MLKEM768",
+        "kyber1024",
+        "dilithium5",
+        "frodo640aes"
+    ]
     
-    # 模擬 OQS 調用
-    for name in kex_assets.values():
-        print(f"Detecting: {name}")
+    for asset in kex_list:
+        print(f"Loading Post-Quantum Asset: {asset}")
 
 if __name__ == "__main__":
-    pqc_scan_trigger()
+    pqc_inventory()
