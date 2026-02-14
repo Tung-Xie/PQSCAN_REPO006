@@ -1,0 +1,7 @@
+security_governance:
+  compliance: "NIST-SP-800-227"
+  pqc_enforcement:
+    kem_standard: "ML-KEM-1024"
+    sig_standard: "ML-DSA-87"
+    fallback: "SLH-DSA-SHA2-128f"
+    backup_kem: "BIKE-L1"
