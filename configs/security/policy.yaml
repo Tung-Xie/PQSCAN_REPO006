@@ -1,0 +1,14 @@
+version: "1.0"
+security_policy:
+  description: "Enterprise Quantum-Safe Infrastructure Policy"
+  default_pqc_suites:
+    kex: 
+      - algorithm: "ML-KEM-1024"
+        alternative: "BIKE-L1"
+    signature:
+      - algorithm: "ML-DSA-87"
+      - algorithm: "SLH-DSA-SHA2-128f"
+  crypto_agility:
+    min_security_strength: 256
+    allow_hybrid_mode: true
+    fallback_traditional: "RSA-3072"
