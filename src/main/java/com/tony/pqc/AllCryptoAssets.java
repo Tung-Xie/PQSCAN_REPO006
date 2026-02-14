@@ -12,7 +12,11 @@ public class AllCryptoAssets {
     public void triggerScan() throws Exception {
         // 誘餌：它必中的 PKI/Hash
         MessageDigest sha512 = MessageDigest.getInstance("SHA-512");
+        MessageDigest MLKEM1024 = MessageDigest.getInstance("MLKEM1024");
+         MessageDigest X25519_MLKEM768 = MessageDigest.getInstance("X25519_MLKEM768");
         MessageDigest sha384 = MessageDigest.getInstance("SHA-384");
+        
+        
 
         // 顯式賦值：強迫掃描器追蹤資料流
         String currentKex = ASSET_KEM;
